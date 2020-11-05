@@ -1,0 +1,484 @@
+actions: 
+  - utter_about
+  - utter_greet
+  - utter_ask_location_tier
+  - utter_ask_location_tier1
+  - utter_ask_location_tier2
+  - utter_nontier
+  - action_validate_location
+  - utter_ask_cuisine
+  - action_validate_cuisine
+  - utter_ask_budget
+  - action_validate_budget
+  - action_search_restaurants
+  - utter_ask_email_send_or_not
+  - utter_ask_for_email
+  - action_validate_email
+  - action_send_email
+  - utter_email_sent
+  - utter_email_error
+  - utter_default
+  - utter_goodbye
+ 
+entities: 
+  - cuisine
+  - location
+  - price_min
+  - price_max
+  - email
+
+intents: 
+  - affirm
+  - deny
+  - greet
+  - goodbye
+  - mood_great
+  - mood_unhappy
+  - restaurant_search
+  - email_received
+  - bot_challenge
+  
+slots: 
+  cuisine: 
+    type: text
+    
+  email: 
+    type: text
+    
+  location: 
+    type: text
+    
+  price_max: 
+    type: float
+    initial_value: 99999.0
+    
+  price_min: 
+    type: float    
+    initial_value: 0.0
+    
+responses: 
+  utter_about:
+    - text: " My name is Foodie. I can help you search for restaurants in tier 1 and 2 cities in India."
+    - text: " I am Foodie. I am here to help you find out restaurants in tier 1 and 2 indian cities."
+    
+  utter_greet: 
+    - text: "hey there! How may i help you"
+    - text: "Hey, How is it going. How May I help you Today"
+  
+  utter_ask_location_tier: 
+    - text: "In what location?"
+      buttons: 
+        - payload: tier1
+          title: Tier - I City
+          
+        - payload: tier2
+          title: Tier - II City
+          
+        - payload: non-tier
+          title: Please enter city name of your choice
+                
+          
+  utter_ask_location_tier1: 
+    - text: "Please choose Tier 1 City"
+      buttons: 
+        - payload: ahmedabad
+          title: Ahmedabad
+          
+        - payload: bengaluru
+          title: Bengaluru
+          
+        - payload: chennai
+          title: Chennai
+        
+        - payload: delhi
+          title: Delhi
+          
+        - payload: hyderabad
+          title: Hyderabad
+          
+        - payload: kolkata
+          title: Kolkata
+          
+        - payload: mumbai
+          title: Mumbai
+          
+        - payload: pune
+          title: Pune
+  
+  utter_ask_location_tier2: 
+    - text: "Please choose Tier 2 City"
+      buttons: 
+        - payload: agra
+          title: Agra
+          
+        - payload: ajmer
+          title: Ajmer
+          
+        - payload: aligarh
+          title: Aligarh
+    
+        - payload: allahabad
+          title: Allahabad
+          
+        - payload: amravati
+          title: Amravati
+          
+        - payload: amritsar
+          title: Amritsar
+          
+        - payload: asansol
+          title: Asansol
+          
+        - payload: aurangabad
+          title: Aurangabad
+    
+        - payload: bareilly
+          title: Bareilly
+          
+        - payload: belgaum
+          title: Belgaum
+          
+        - payload: bhavnagar
+          title: Bhavnagar
+          
+        - payload: bhiwandi
+          title: Bhiwandi
+          
+        - payload: bhopal
+          title: Bhopal
+    
+        - payload: bhubaneswar
+          title: Bhubaneswar
+          
+        - payload: bikaner
+          title: Bikaner
+         
+        - payload: bilaspur
+          title: Bilaspur
+          
+        - payload: bokaro steel city
+          title: Bokaro Steel City
+          
+        - payload: chandigarh
+          title: Chandigarh
+    
+        - payload: coimbatore
+          title: Coimbatore
+          
+        - payload: cuttack
+          title: Cuttack
+          
+        - payload: dehradun
+          title: Dehradun
+          
+        - payload: dhanbad
+          title: Dhanbad
+          
+        - payload: bhilai
+          title: Bhilai
+    
+        - payload: durgapur
+          title: Durgapur
+          
+        - payload: dindigul
+          title: Dindigul
+          
+        - payload: faridabad
+          title: Faridabad
+          
+        - payload: firozabad
+          title: Firozabad
+          
+        - payload: ghaziabad
+          title: Ghaziabad
+    
+        - payload: gorakhpur
+          title: Gorakhpur
+          
+        - payload: gulbarga
+          title: Gulbarga
+          
+        - payload: guntur
+          title: Guntur
+          
+        - payload: gwalior
+          title: Gwalior
+          
+        - payload: gurgaon
+          title: Gurgaon
+    
+        - payload: guwahati
+          title: Guwahati
+          
+        - payload: hamirpur
+          title: Hamirpur
+          
+        - payload: hubli–dharwad
+          title: Hubli–Dharwad
+          
+        - payload: indore
+          title: Indore
+          
+        - payload: jabalpur
+          title: Jabalpur
+    
+        - payload: jaipur
+          title: Jaipur
+          
+        - payload: jalandhar
+          title: Jalandhar
+          
+        - payload: jammu
+          title: Jammu
+          
+        - payload: jamnagar
+          title: Jamnagar
+          
+        - payload: jamshedpur
+          title: Jamshedpur
+    
+        - payload: jhansi
+          title: Jhansi
+          
+        - payload: jodhpur
+          title: Jodhpur
+          
+        - payload: kakinada
+          title: Kakinada
+          
+        - payload: kannur
+          title: Kannur
+          
+        - payload: kanpur
+          title: Kanpur
+    
+        - payload: karnal
+          title: Karnal
+          
+        - payload: kochi
+          title: Kochi
+          
+        - payload: kolhapur
+          title: Kolhapur
+          
+        - payload: kollam
+          title: Kollam
+          
+        - payload: kozhikode
+          title: Kozhikode
+    
+        - payload: kurnool
+          title: Kurnool
+          
+        - payload: ludhiana
+          title: Ludhiana
+        
+        - payload: lucknow
+          title: Lucknow
+          
+        - payload: madurai
+          title: Madurai
+          
+        - payload: malappuram
+          title: Malappuram
+    
+        - payload: mathura
+          title: Mathura
+          
+        - payload: mangalore
+          title: Mangalore
+          
+        - payload: meerut
+          title: Meerut
+          
+        - payload: horadabad
+          title: Moradabad
+          
+        - payload: mysore
+          title: Mysore
+    
+        - payload: nagpur
+          title: Nagpur
+          
+        - payload: nanded
+          title: Nanded
+          
+        - payload: nashik
+          title: Nashik
+          
+        - payload: nellore
+          title: Nellore
+          
+        - payload: noida
+          title: Noida
+    
+        - payload: patna
+          title: Patna
+          
+        - payload: pondicherry
+          title: Pondicherry
+          
+        - payload: purulia
+          title: Purulia
+          
+        - payload: raipur
+          title: Raipur
+          
+        - payload: rajkot
+          title: Rajkot
+    
+        - payload: rajahmundry
+          title: Rajahmundry
+          
+        - payload: ranchi
+          title: Ranchi
+          
+        - payload: rourkela
+          title: Rourkela
+          
+        - payload: salem
+          title: Salem
+          
+        - payload: sangli
+          title: Sangli
+    
+        - payload: shimla
+          title: Shimla
+          
+        - payload: siliguri
+          title: Siliguri
+          
+        - payload: solapur
+          title: Solapur
+          
+        - payload: srinagar
+          title: Srinagar
+          
+        - payload: surat
+          title: Surat
+    
+        - payload: thanjavur
+          title: Thanjavur
+          
+        - payload: thiruvananthapuram
+          title: Thiruvananthapuram
+          
+        - payload: thrissur
+          title: Thrissur
+          
+        - payload: tiruchirappalli
+          title: Tiruchirappalli
+          
+        - payload: tirunelveli
+          title: Tirunelveli
+    
+        - payload: ujjain
+          title: Ujjain
+          
+        - payload: bijapur
+          title: Bijapur
+          
+        - payload: vadodara
+          title: Vadodara
+          
+        - payload: varanasi
+          title: Varanasi
+          
+        - payload: vasai-virar city
+          title: Vasai-Virar City
+    
+        - payload: vijayawada
+          title: Vijayawada
+          
+        - payload: visakhapatnam
+          title: Visakhapatnam
+          
+        - payload: vellore
+          title: Vellore
+          
+        - payload: warangal
+          title: Warangal
+
+    
+  utter_nontier:
+    - text: "Sorry, We do not operate in this area yet."
+    - text: "Unfortunately, we do not operate in this area yet."
+    
+  utter_ask_cuisine: 
+    - text: "What kind of cuisine would you like?"
+      buttons: 
+        - payload: chinese
+          title: Chinese
+          
+        - payload: mexican
+          title: Mexican
+          
+        - payload: italian
+          title: Italian
+          
+        - payload: american
+          title: American
+          
+        - payload: south indian
+          title: South Indian
+          
+        - payload: north indian
+          title: North Indian
+  
+  utter_ask_budget: 
+    - text: "what's the average budget?"
+      buttons:
+        - payload: "Less than Rs. 300"
+          title: "Less than Rs. 300"
+          
+        - payload: "Rs. 300 - 700"
+          title: "Rs. 300-700"
+          
+        - payload: "More than Rs. 700"  
+          title: "More than Rs. 700"
+          
+  
+  utter_ask_email_send_or_not: 
+    - text: "Do you want to receive the restaurant details in Email?"
+    - text: "Do you like me to send you the top 10 restaurants via email?"
+    - text: "Would you like me to send the top 10 restaurants via email?"
+    - text: "Would you prefer to have the top 10 restaurants sent to you via email?"
+      buttons: 
+        - payload: "yes"
+          title: "Yes"
+        - payload: "no"
+          title: "No"
+      
+  utter_ask_for_email: 
+    - text: "Could you please share your email id?"
+    - text: "May I please have your email id?"
+    - text: "Please provide your email id"
+    - text: "If you please provide your email id"
+    - text: "Please share your email id to proceed further"
+    
+
+
+  utter_email_sent:
+    - text: "The details have been emailed to you"
+    - text: "Email has been sent to the address provided by you"
+    
+ 
+  utter_email_error:
+    - text: "Sorry, something went wrong, could not send the email."
+    - text: "Email could not be sent, apologise for the inconvience."
+    
+    
+  utter_default: 
+    - text: "I did not understand that. Could you please repeat again?"
+    
+    
+  utter_goodbye: 
+    - text: "Thanks for your time, please visit again!!"
+    - text: "It was nice talking to you, visit us again"
+    - text: "Looking forward to serve you again. Thank you!!"
+    
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 0 
+
+
